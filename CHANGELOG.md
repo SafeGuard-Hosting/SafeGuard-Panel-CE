@@ -10,6 +10,17 @@ page — the installer checks every download against them.
 
 ## [Unreleased]
 
+## [1.3.2] — 2026-06-13
+
+### Added
+- **The panel now terminates HTTPS itself.** Installing a certificate (custom,
+  Let's Encrypt, or wildcard) writes it to disk and rebuilds the domain's nginx
+  vhost with a real `:443` server block, so the box serves the site over HTTPS
+  directly (with an optional HTTP→HTTPS redirect). Previously a cert was only
+  recorded in the panel and never served. Behind Cloudflare with a wildcard or
+  origin cert you can now use **Full (strict)**. Removing a cert reverts the
+  domain to HTTP.
+
 ## [1.3.1] — 2026-06-13
 
 ### Fixed
