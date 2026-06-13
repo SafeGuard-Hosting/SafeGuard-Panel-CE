@@ -220,7 +220,42 @@ customer data.
 
 ---
 
-## 6. Security posture summary
+## 6. Verifying releases (supply-chain integrity)
+
+Every release attaches a `SHA256SUMS` file and a detached GPG signature
+`SHA256SUMS.asc`, signed by the **SafeGuard release-signing key**. The private
+key never resides on any download server, so a compromised mirror or CDN cannot
+forge a valid signature — it can only get caught.
+
+**Release-signing key fingerprint:**
+
+```
+6C5B CC89 94E4 529F F969  C946 A4A1 7D29 03CB 009F
+SafeGuard Hosting (Release Signing) <support@safeguardpanel.ca>
+```
+
+The public key is published with each release as `safeguard-release-signing.asc`
+(and in the repo at `docs/keys/`). To verify a download:
+
+```sh
+gpg --import safeguard-release-signing.asc
+gpg --verify SHA256SUMS.asc SHA256SUMS     # expect: Good signature, matching fingerprint above
+sha256sum -c SHA256SUMS --ignore-missing   # expect: every artifact OK
+```
+
+The installer performs this same check automatically: it carries the public key
+inline, fetches `SHA256SUMS.asc`, and **aborts** if the signature is present but
+does not verify. It is also wrapped so a truncated `curl | bash` download parses
+to completion before executing — a partial download runs nothing.
+
+> Operational note: protect the release-signing private key (offline backup;
+> ideally a passphrase or hardware token for the long-term key). Its compromise
+> would let an attacker sign malicious releases. Rotate via the published
+> revocation certificate if ever exposed.
+
+---
+
+## 7. Security posture summary
 
 At the application layer, SafeGuard Panel implements controls that most web
 applications never reach and is **immune to every CyberPanel exploit class that

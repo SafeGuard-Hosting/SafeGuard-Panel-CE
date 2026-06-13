@@ -356,6 +356,27 @@ ssh root@SERVER 'SAFEGUARD_DOWNLOAD_BASE=file:///root/safeguard-release \
     bash /root/safeguard-release/install.sh'
 ```
 
+### 🔐 Verify before you run (recommended)
+
+Piping `curl | bash` is convenient but asks you to trust the server in the
+moment. For a supply-chain-safe install, fetch the release from **GitHub**
+(a separate origin), check the signature, and read the script before running it.
+Every release ships a `SHA256SUMS` file **GPG-signed** by the SafeGuard release
+key — the private half never touches any server, so a compromised mirror can't
+forge it. The installer itself also carries this key and refuses a bad signature.
+
+```sh
+# 1. Download the release assets from the Releases page, then:
+gpg --import safeguard-release-signing.asc          # one-time; fingerprint below
+gpg --verify SHA256SUMS.asc SHA256SUMS              # must say "Good signature"
+sha256sum -c SHA256SUMS --ignore-missing            # all files: OK
+less install.sh                                     # read it — then:
+sudo bash install.sh
+```
+
+**Release-signing key fingerprint** (confirm it matches [SECURITY.md](SECURITY.md)):
+`6C5B CC89 94E4 529F F969  C946 A4A1 7D29 03CB 009F`
+
 The installer provisions the whole stack (Nginx, Apache, PHP-FPM 7.4–8.5, MariaDB,
 PostgreSQL, BIND, Valkey, Varnish, Pure-FTPd, certbot, CSF, ImunifyAV), creates the
 systemd services, terminates TLS on port **2087**, and prints your generated admin
