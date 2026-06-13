@@ -1,0 +1,41 @@
+<svg width="920" height="320" viewBox="0 0 920 320" xmlns="http://www.w3.org/2000/svg" font-family="'Segoe UI','Helvetica Neue',Arial,sans-serif">
+  <rect x="0" y="0" width="920" height="320" rx="16" fill="#0d1117" stroke="#1f2630" stroke-width="1"/>
+  <text x="32" y="42" fill="#e6edf3" font-size="22" font-weight="700">Time to ready — service start → first request served</text>
+  <text x="32" y="66" fill="#8b949e" font-size="13">One binary boots in half a second. A daemon stack takes its time. Shorter is better.</text>
+
+  <!-- scale ticks (seconds) -->
+  <g stroke="#1f2630" stroke-width="1">
+    <line x1="200" y1="88" x2="200" y2="276"/>
+    <line x1="365" y1="88" x2="365" y2="276"/>
+    <line x1="530" y1="88" x2="530" y2="276"/>
+    <line x1="695" y1="88" x2="695" y2="276"/>
+    <line x1="860" y1="88" x2="860" y2="276"/>
+  </g>
+  <g fill="#6e7681" font-size="11" text-anchor="middle">
+    <text x="200" y="294">0s</text><text x="365" y="294">15s</text><text x="530" y="294">30s</text><text x="695" y="294">45s</text><text x="860" y="294">60s</text>
+  </g>
+
+  <g font-size="13">
+    <!-- SafeGuard 0.5s -->
+    <text x="178" y="112" fill="#e6edf3" text-anchor="end" font-weight="700">SafeGuard Panel</text>
+    <rect x="200" y="98" width="6" height="26" rx="3" fill="#2ee59d"/>
+    <text x="214" y="116" fill="#2ee59d" font-weight="700">~0.5s · measured</text>
+
+    <!-- DirectAdmin ~10s -->
+    <text x="178" y="158" fill="#c9d1d9" text-anchor="end">DirectAdmin</text>
+    <rect x="200" y="144" width="110" height="26" rx="5" fill="#3b4655"/>
+    <text x="320" y="162" fill="#8b949e">~10s</text>
+
+    <!-- Plesk ~30s -->
+    <text x="178" y="204" fill="#c9d1d9" text-anchor="end">Plesk</text>
+    <rect x="200" y="190" width="330" height="26" rx="5" fill="#4a3b5a"/>
+    <text x="540" y="208" fill="#8b949e">~30s</text>
+
+    <!-- cPanel ~50s -->
+    <text x="178" y="250" fill="#c9d1d9" text-anchor="end">cPanel &amp; WHM</text>
+    <rect x="200" y="236" width="550" height="26" rx="5" fill="#5a3636"/>
+    <text x="760" y="254" fill="#8b949e">~50s</text>
+  </g>
+
+  <text x="32" y="312" fill="#6e7681" font-size="11">SafeGuard = measured cold start (process launch → first HTTP 200). Competitor times are representative full-stack service-start figures.</text>
+</svg>

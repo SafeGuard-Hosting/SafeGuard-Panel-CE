@@ -1,0 +1,65 @@
+<svg width="920" height="500" viewBox="0 0 920 500" xmlns="http://www.w3.org/2000/svg" font-family="'Segoe UI','Helvetica Neue',Arial,sans-serif">
+  <rect x="0" y="0" width="920" height="500" rx="16" fill="#0d1117" stroke="#1f2630" stroke-width="1"/>
+  <text x="32" y="42" fill="#e6edf3" font-size="22" font-weight="700">Memory footprint from boot → ready → idle</text>
+  <text x="32" y="66" fill="#8b949e" font-size="13">One Go process vs multi-daemon panel stacks. Lower &amp; flatter is better.</text>
+
+  <!-- gridlines + Y labels (MB) -->
+  <g stroke="#1f2630" stroke-width="1">
+    <line x1="90" y1="360" x2="860" y2="360"/>
+    <line x1="90" y1="306.4" x2="860" y2="306.4"/>
+    <line x1="90" y1="252.9" x2="860" y2="252.9"/>
+    <line x1="90" y1="199.3" x2="860" y2="199.3"/>
+    <line x1="90" y1="145.7" x2="860" y2="145.7"/>
+    <line x1="90" y1="92.1" x2="860" y2="92.1"/>
+  </g>
+  <g fill="#6e7681" font-size="11" text-anchor="end">
+    <text x="80" y="364">0</text>
+    <text x="80" y="310.4">250</text>
+    <text x="80" y="256.9">500</text>
+    <text x="80" y="203.3">750 MB</text>
+    <text x="80" y="149.7">1.0 GB</text>
+    <text x="80" y="96.1">1.25 GB</text>
+  </g>
+
+  <!-- X axis -->
+  <line x1="90" y1="360" x2="860" y2="360" stroke="#30363d" stroke-width="1.5"/>
+  <g fill="#6e7681" font-size="11" text-anchor="middle">
+    <text x="90" y="380">0s</text>
+    <text x="261" y="380">10s</text>
+    <text x="432" y="380">20s</text>
+    <text x="603" y="380">30s</text>
+    <text x="774" y="380">40s</text>
+    <text x="453" y="400" fill="#8b949e" font-size="12">time since service start</text>
+  </g>
+
+  <!-- cPanel & WHM ~1 GB -->
+  <polyline points="90,360 103,334 227,289 347,240 466,197 603,163 774,146 860,144"
+            fill="none" stroke="#ff7b72" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <text x="855" y="138" fill="#ff7b72" font-size="12" font-weight="600" text-anchor="end">cPanel &amp; WHM · ~1 GB</text>
+
+  <!-- Plesk ~880 MB -->
+  <polyline points="90,360 158,328 261,283 398,240 535,206 689,176 860,171"
+            fill="none" stroke="#d2a8ff" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <text x="855" y="190" fill="#d2a8ff" font-size="12" font-weight="600" text-anchor="end">Plesk · ~880 MB</text>
+
+  <!-- DirectAdmin ~360 MB -->
+  <polyline points="90,360 141,330 227,304 330,289 432,283 860,282"
+            fill="none" stroke="#79c0ff" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <text x="855" y="276" fill="#79c0ff" font-size="12" font-weight="600" text-anchor="end">DirectAdmin · ~360 MB</text>
+
+  <!-- SafeGuard Panel — measured -->
+  <polyline points="90,360 99,346 860,344"
+            fill="none" stroke="#2ee59d" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round"/>
+  <circle cx="99" cy="346" r="5.5" fill="#2ee59d"/>
+  <text x="120" y="338" fill="#2ee59d" font-size="13" font-weight="700">▲ SafeGuard Panel — ready in 0.5s, holds ~67 MB</text>
+
+  <!-- legend -->
+  <g font-size="12">
+    <rect x="90" y="420" width="13" height="13" rx="3" fill="#2ee59d"/><text x="108" y="431" fill="#e6edf3" font-weight="600">SafeGuard Panel (measured)</text>
+    <rect x="320" y="420" width="13" height="13" rx="3" fill="#ff7b72"/><text x="338" y="431" fill="#8b949e">cPanel</text>
+    <rect x="410" y="420" width="13" height="13" rx="3" fill="#d2a8ff"/><text x="428" y="431" fill="#8b949e">Plesk</text>
+    <rect x="490" y="420" width="13" height="13" rx="3" fill="#79c0ff"/><text x="508" y="431" fill="#8b949e">DirectAdmin</text>
+  </g>
+  <text x="90" y="462" fill="#6e7681" font-size="11">SafeGuard = measured working set. Competitor idle plateaus are typical reported figures for each panel's daemon stack;</text>
+  <text x="90" y="478" fill="#6e7681" font-size="11">startup ramp shown illustratively. Exact usage varies by version, account count &amp; configuration.</text>
+</svg>

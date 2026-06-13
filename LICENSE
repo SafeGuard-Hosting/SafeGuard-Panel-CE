@@ -1,0 +1,157 @@
+SafeGuard Panel — End User License Agreement (Free Use)
+Version 1.0 — 2026
+
+Copyright © 2026 SafeGuard Hosting Inc. (https://safeguardpanel.ca)
+All rights reserved.
+
+This End User License Agreement ("Agreement") is a legal agreement between you
+("you" or "Licensee") and SafeGuard Hosting Inc. ("SafeGuard") governing your use
+of the SafeGuard Panel software, including its binaries, installer, scripts, and
+associated files (collectively, the "Software").
+
+BY INSTALLING, COPYING, OR USING THE SOFTWARE, YOU AGREE TO BE BOUND BY THIS
+AGREEMENT. IF YOU DO NOT AGREE, DO NOT INSTALL OR USE THE SOFTWARE.
+
+
+1. LICENSE GRANT
+
+   SafeGuard grants you a free, non-exclusive, non-transferable, worldwide
+   license to install and use the Software, including for commercial web-hosting
+   purposes, on any number of servers you own or control, at no charge and
+   without registration. There are no per-account, per-server, or per-domain
+   fees, and there are no feature locks tied to payment.
+
+   For clarity, the following are all permitted free uses: personal use;
+   running websites for yourself, your family, or your business; operating a
+   commercial hosting company that uses the Software to serve paying
+   customers; and selling reseller hosting accounts on servers you operate
+   with the Software. Charging your customers for HOSTING SERVICES delivered
+   through the Software is free use. What requires a separate license is
+   selling or distributing THE SOFTWARE ITSELF — see Sections 3(a) and 11.
+
+
+2. WHITE-LABEL USE
+
+   You may use the Software's built-in white-label and branding features to
+   present the panel to your own customers under your own name, logos, and
+   colors. This permission applies only to the Software's own configuration
+   features and does not grant any right to modify, repackage, or redistribute
+   the Software itself.
+
+
+3. RESTRICTIONS
+
+   You may not:
+
+   (a) sell, resell, sublicense, rent, lease, distribute, publish, bundle,
+       repackage, or otherwise make the Software available to any third party
+       as a standalone product, download, or repository, UNLESS you have first
+       obtained a separate written redistribution, reseller, or OEM license
+       directly from SafeGuard under Section 11 (this restriction covers the
+       Software itself — it does not restrict the free hosting-service uses
+       described in Section 1);
+
+   (b) modify, adapt, translate, reverse engineer, decompile, disassemble, or
+       otherwise attempt to derive the source code of the Software, except to
+       the limited extent this restriction is expressly prohibited by
+       applicable law;
+
+   (c) remove, alter, or obscure any copyright, trademark, or other proprietary
+       notice contained in the Software's code, binaries, or files. Use of the
+       built-in white-label features described in Section 2 is permitted and is
+       not a breach of this clause;
+
+   (d) use the Software, in whole or in part, to develop, train, or build a
+       product that competes with the Software; or
+
+   (e) use the Software in any unlawful manner or in violation of any applicable
+       law or regulation.
+
+
+4. OWNERSHIP
+
+   The Software is licensed, not sold. SafeGuard and its licensors retain all
+   right, title, and interest in and to the Software, including all intellectual
+   property rights therein. No rights are granted to you except as expressly set
+   out in this Agreement.
+
+
+5. THIRD-PARTY COMPONENTS
+
+   The Software incorporates third-party open-source components that remain
+   governed by their own respective licenses. Nothing in this Agreement limits
+   your rights, or your obligations, under those licenses with respect to those
+   components.
+
+
+6. UPDATES, SERVICES, AND SUPPORT
+
+   SafeGuard may, but is not obligated to, provide updates, patches, or support
+   for the Software. Optional paid services — including managed hosting,
+   professional support, and migration assistance — may be offered separately
+   under their own terms and are not required to use the Software.
+
+
+7. NO WARRANTY
+
+   THE SOFTWARE IS PROVIDED "AS IS" AND "AS AVAILABLE", WITHOUT WARRANTY OF ANY
+   KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE IMPLIED WARRANTIES
+   OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, TITLE, AND
+   NON-INFRINGEMENT. YOU ASSUME THE ENTIRE RISK ARISING OUT OF YOUR USE OR
+   PERFORMANCE OF THE SOFTWARE.
+
+
+8. LIMITATION OF LIABILITY
+
+   TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, SAFEGUARD SHALL NOT BE
+   LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE
+   DAMAGES, OR FOR ANY LOSS OF PROFITS, REVENUE, DATA, OR GOODWILL, ARISING OUT
+   OF OR RELATED TO THIS AGREEMENT OR YOUR USE OF THE SOFTWARE, EVEN IF ADVISED
+   OF THE POSSIBILITY OF SUCH DAMAGES. BECAUSE THE SOFTWARE IS PROVIDED FREE OF
+   CHARGE, SAFEGUARD'S TOTAL AGGREGATE LIABILITY UNDER THIS AGREEMENT SHALL NOT
+   EXCEED ONE U.S. DOLLAR (USD $1.00).
+
+
+9. TERMINATION
+
+   This Agreement and the license granted herein terminate automatically and
+   immediately if you breach any of its terms. Upon termination, you must cease
+   all use of the Software and remove all copies in your possession or control.
+   Sections 3, 4, 7, 8, 9, 10, and 11 survive termination.
+
+
+10. GOVERNING LAW
+
+   This Agreement is governed by and construed in accordance with the laws of
+   the Province of Alberta and the federal laws of Canada applicable therein,
+   without regard to its conflict-of-laws principles. The courts located in
+   Edmonton, Alberta shall have exclusive jurisdiction over any dispute arising
+   out of or relating to this Agreement.
+
+
+11. REDISTRIBUTION, RESALE, AND OEM LICENSING
+
+   If you wish to sell, resell, redistribute, bundle, pre-install for
+   delivery to third parties as a product, or otherwise package the Software
+   itself — for example as part of a server image, appliance, marketplace
+   offering, or rebranded panel product — you must first obtain a separate
+   written redistribution, reseller, or OEM license directly from SafeGuard.
+   Such licenses are negotiated individually and are available on request:
+   support@safeguardpanel.ca. No conduct, silence, or course of dealing
+   creates such a license by implication; only a written agreement signed by
+   SafeGuard does.
+
+   For the avoidance of doubt: operating a hosting business on the Software,
+   including white-labeled reseller hosting under Section 2, does NOT
+   require this license and remains free under Section 1.
+
+
+12. ENTIRE AGREEMENT
+
+   This Agreement constitutes the entire agreement between you and SafeGuard
+   regarding the Software and supersedes all prior or contemporaneous
+   understandings. If any provision is held unenforceable, the remaining
+   provisions remain in full force and effect.
+
+
+Contact: support@safeguardpanel.ca

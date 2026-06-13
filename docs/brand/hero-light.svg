@@ -1,0 +1,78 @@
+<svg width="1120" height="320" viewBox="-16 -16 1152 352" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg2" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#23C58A"/>
+      <stop offset="1" stop-color="#15986B"/>
+    </linearGradient>
+    <linearGradient id="card2" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FFFFFF" stop-opacity="0.32"/>
+      <stop offset="1" stop-color="#FFFFFF" stop-opacity="0.18"/>
+    </linearGradient>
+    <linearGradient id="sheen2" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0FB079" stop-opacity="0.5"/>
+      <stop offset="0.5" stop-color="#0FB079" stop-opacity="0"/>
+    </linearGradient>
+    <!-- bright green halo glow (the confirmed mark) -->
+    <filter id="glow2" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="0" stdDeviation="10" flood-color="#23C58A" flood-opacity="0.85"/>
+      <feDropShadow dx="0" dy="0" stdDeviation="3" flood-color="#2EE59D" flood-opacity="0.8"/>
+      <feDropShadow dx="0" dy="5" stdDeviation="10" flood-color="#0A4D32" flood-opacity="0.25"/>
+    </filter>
+  </defs>
+
+  <!-- transparent canvas; icon on the left -->
+  <g transform="translate(40,40)">
+    <rect x="0" y="0" width="240" height="240" rx="56" fill="url(#bg2)" filter="url(#glow2)"/>
+    <rect x="0" y="0" width="240" height="240" rx="56" fill="url(#sheen2)"/>
+
+    <!-- server cards: status dot, two text lines, ••• menu -->
+    <rect x="39" y="32" width="163" height="28" rx="9" fill="url(#card2)"/>
+    <circle cx="56" cy="46" r="6" fill="#FFFFFF" opacity="0.9"/>
+    <rect x="68" y="39.5" width="66" height="5" rx="2.5" fill="#FFFFFF" opacity="0.8"/>
+    <rect x="68" y="47.5" width="43" height="4.5" rx="2" fill="#FFFFFF" opacity="0.4"/>
+    <circle cx="171" cy="46" r="2.7" fill="#FFFFFF" opacity="0.75"/>
+    <circle cx="182" cy="46" r="2.7" fill="#FFFFFF" opacity="0.75"/>
+    <circle cx="192" cy="46" r="2.7" fill="#FFFFFF" opacity="0.75"/>
+
+    <rect x="39" y="66" width="163" height="28" rx="9" fill="url(#card2)"/>
+    <circle cx="56" cy="80" r="6" fill="#FFFFFF" opacity="0.9"/>
+    <rect x="68" y="73.5" width="66" height="5" rx="2.5" fill="#FFFFFF" opacity="0.8"/>
+    <rect x="68" y="81.5" width="43" height="4.5" rx="2" fill="#FFFFFF" opacity="0.4"/>
+    <circle cx="171" cy="80" r="2.7" fill="#FFFFFF" opacity="0.75"/>
+    <circle cx="182" cy="80" r="2.7" fill="#FFFFFF" opacity="0.75"/>
+    <circle cx="192" cy="80" r="2.7" fill="#FFFFFF" opacity="0.75"/>
+
+    <rect x="39" y="101" width="163" height="28" rx="9" fill="url(#card2)"/>
+    <circle cx="56" cy="115" r="6" fill="#FFFFFF" opacity="0.9"/>
+    <rect x="68" y="108.5" width="66" height="5" rx="2.5" fill="#FFFFFF" opacity="0.8"/>
+    <rect x="68" y="116.5" width="43" height="4.5" rx="2" fill="#FFFFFF" opacity="0.4"/>
+    <circle cx="171" cy="115" r="2.7" fill="#FFFFFF" opacity="0.75"/>
+    <circle cx="182" cy="115" r="2.7" fill="#FFFFFF" opacity="0.75"/>
+    <circle cx="192" cy="115" r="2.7" fill="#FFFFFF" opacity="0.75"/>
+
+    <!-- lock overlapping the lower rows -->
+    <path d="M100 123 v-15 a20 20 0 0 1 41 0 v15"
+          fill="none" stroke="#FFFFFF" stroke-width="12" stroke-linecap="round"/>
+    <rect x="88" y="121" width="64" height="51" rx="12" fill="#FFFFFF"/>
+    <circle cx="120" cy="142.5" r="7.5" fill="#15986B"/>
+    <rect x="116" y="147" width="9" height="14" rx="4.5" fill="#15986B"/>
+
+    <!-- SGP chip centered under the lock -->
+    <g transform="translate(120,201)">
+      <rect x="-33" y="-14.5" width="66" height="29" rx="7.5" fill="#0A4D32"/>
+      <text x="0" y="6" text-anchor="middle"
+            font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif"
+            font-size="19" font-weight="700" letter-spacing="3"><tspan fill="#FFFFFF">S</tspan><tspan fill="#3FD89B">G</tspan><tspan fill="#FFFFFF">P</tspan></text>
+    </g>
+  </g>
+
+  <!-- wordmark: explicit colors for GitHub light theme, matching the
+       confirmed light-background lockup -->
+  <g transform="translate(330,0)" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif">
+    <text x="0" y="158" font-size="86" font-weight="700" letter-spacing="-1">
+      <tspan fill="#9CA3AF">Safe</tspan><tspan fill="#1FB981">Guard</tspan><tspan fill="#C4CAD2"> Panel</tspan>
+    </text>
+    <text x="4" y="214" font-size="22" font-style="italic" fill="#6B7280"
+          letter-spacing="0.5">by hosts, for hosts</text>
+  </g>
+</svg>

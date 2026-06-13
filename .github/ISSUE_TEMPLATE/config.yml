@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: 🔐 Security vulnerability (private disclosure)
+    url: https://github.com/SafeGuard-Hosting/SafeGuard-Panel-CE/blob/main/SECURITY.md
+    about: Please do NOT open a public issue for security problems — follow the security policy.
+  - name: 🤝 Support, managed hosting & OEM licensing
+    url: https://safeguardpanel.ca
+    about: Priority support licenses, managed hosting, and panel redistribution/OEM licensing.

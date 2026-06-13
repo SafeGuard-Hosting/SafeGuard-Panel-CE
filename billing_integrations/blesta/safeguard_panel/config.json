@@ -1,0 +1,13 @@
+{
+    "version": "1.0.0",
+    "name": "SafeGuard Panel",
+    "description": "Provision hosting accounts on SafeGuard Panel",
+    "authors": [
+        {
+            "name": "SafeGuard Hosting Inc.",
+            "url": "https://safeguardpanel.ca"
+        }
+    ],
+    "logo": "",
+    "module": "safeguard_panel"
+}
