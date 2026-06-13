@@ -10,6 +10,20 @@ page — the installer checks every download against them.
 
 ## [Unreleased]
 
+## [1.3.1] — 2026-06-13
+
+### Fixed
+- **SSL page no longer breaks when installing a custom certificate.** A
+  certificate whose hostnames live only in the Common Name (no SAN extension) —
+  common for Cloudflare Origin and other manually-issued certs — could blank out
+  the SSL page after install. Certificates now always display correctly, and
+  pasted PEM with stray whitespace is tolerated.
+
+### Added
+- **Per-domain navigation in the File Manager.** A Site selector jumps to a
+  domain's document root (or the whole home), and each Domains-page row has a
+  Files button that opens the file manager at that site's document root.
+
 ## [1.3.0] — 2026-06-13
 
 ### Added
