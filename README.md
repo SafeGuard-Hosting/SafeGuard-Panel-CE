@@ -13,6 +13,7 @@ A complete cPanel / Plesk / DirectAdmin alternative: one self-contained Go binar
 a React control panel with **six switchable UI shells**, and a one-command installer
 for AlmaLinux 9.
 
+[![Latest release](https://img.shields.io/github/v/release/SafeGuard-Hosting/SafeGuard-Panel-CE?style=flat-square&color=10b981&label=release)](https://github.com/SafeGuard-Hosting/SafeGuard-Panel-CE/releases/latest)
 [![Free Forever](https://img.shields.io/badge/price-%240%20forever-10b981?style=flat-square)](#-licensing--actually-free-heres-exactly-how)
 [![License](https://img.shields.io/badge/license-Free%20to%20use%20%E2%80%A2%20Proprietary-7c3aed?style=flat-square)](LICENSE)
 [![Made with Go](https://img.shields.io/badge/backend-Go%201.25%20stdlib-00ADD8?style=flat-square&logo=go&logoColor=white)](#-tech-stack)
