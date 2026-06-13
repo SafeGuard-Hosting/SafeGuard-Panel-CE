@@ -21,6 +21,14 @@ for AlmaLinux 9.
 [![AlmaLinux 9](https://img.shields.io/badge/target-AlmaLinux%209-0F4266?style=flat-square&logo=almalinux&logoColor=white)](#-install-on-almalinux-9)
 [![Security](https://img.shields.io/badge/security-pentested%20%E2%80%A2%200%20known%20CVEs-10b981?style=flat-square)](SECURITY.md)
 
+Fresh **AlmaLinux / Rocky / CloudLinux 9** box → working panel in minutes:
+
+```sh
+curl -sSL https://install.safeguardpanel.ca | sudo bash
+```
+
+<sub>Full install options, requirements and what the installer does: [Install guide ↓](#-install-on-almalinux-9)</sub>
+
 [⚡ Performance](#-performance--built-in-2026-not-2003) ·
 [🎨 Six UI shells](#-a-panel-that-adapts-to-your-workflow--not-the-other-way-around) ·
 [⚔️ Comparison](#%EF%B8%8F-how-it-compares) ·
