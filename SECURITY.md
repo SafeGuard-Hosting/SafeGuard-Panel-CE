@@ -253,6 +253,25 @@ to completion before executing — a partial download runs nothing.
 > would let an attacker sign malicious releases. Rotate via the published
 > revocation certificate if ever exposed.
 
+**Third-party components installed at setup.** SafeGuard's own binaries are
+signature-verified as above. The OS dependency stack (Nginx, PHP, MariaDB,
+PostgreSQL, BIND, …) is installed from the distribution + EPEL/Remi repositories
+with `dnf` **`gpgcheck` left enabled**, so every package is GPG-verified by the
+package manager — the same trust model cPanel/Plesk/Imunify rely on. Three
+components are pulled from their vendors at install time over HTTPS and run with
+elevated privilege; this is the vendor-recommended install path and an accepted,
+industry-standard inherited trust:
+- **Adminer** — pinned to a specific release **and checksum-verified** by the
+  installer (no moving `latest.php`).
+- **CSF** (ConfigServer) and **ImunifyAV** (CloudLinux) — fetched from the
+  vendors and run as root. CloudLinux ships ImunifyAV's actual agent via a
+  GPG-signed repo; CSF is delivered as a tarball. A future hardening is to pin
+  these to recorded checksums where the vendors publish stable artifacts.
+
+**The self-update channel**, when implemented, MUST verify the GPG-signed
+`SHA256SUMS` and each new binary before swapping (it is a stub today) — otherwise
+it would bypass the install-time supply-chain guarantees above.
+
 ---
 
 ## 7. Security posture summary
