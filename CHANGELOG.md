@@ -10,6 +10,28 @@ page — the installer checks every download against them.
 
 ## [Unreleased]
 
+## [1.3.0] — 2026-06-13
+
+### Added
+- **Complete File Manager for hosting accounts.** Upload, download, copy,
+  compress (`.zip`/`.tar.gz`), extract, and search now work for every hosting
+  account — joining the editor, create, rename, and permissions operations
+  shipped earlier. The file manager is now fully usable by customers, not just
+  the owner.
+- **Verified one-click updates.** The panel downloads a signed release, verifies
+  the GPG signature and every checksum before installing, swaps the binaries
+  (keeping the previous build for rollback), and restarts automatically. A bad
+  or missing signature aborts the update.
+
+### Security & hardening
+- Every file operation for a hosting account runs through the isolated privileged
+  worker, confined to that account's home directory by the kernel
+  (`openat2 RESOLVE_BENEATH`): no symlink escape, no `..` traversal, and archive
+  extraction is guarded against zip-slip and decompression bombs.
+- The updater re-verifies the release signature and checksums inside the
+  privileged component itself before swapping any binary, so a compromised panel
+  process cannot install an unsigned or tampered build.
+
 ## [1.2.0] — 2026-06-13
 
 ### Added
