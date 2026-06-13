@@ -10,10 +10,24 @@ page — the installer checks every download against them.
 
 ## [Unreleased]
 
+## [1.2.0] — 2026-06-13
+
 ### Added
 - **Authoritative DNS.** Creating a domain now renders a real BIND zone (SOA,
   NS, A, MX, SPF, …) and the server answers DNS for it; the DNS editor updates
   the live zone on every change, and deleting a domain removes it.
+
+### Security & hardening
+*(From an extensive live penetration test — OWASP Top 10 plus the CVE classes
+that have breached cPanel/Plesk/DirectAdmin/Webmin/VestaCP.)*
+- **Per-tenant resource isolation now actually enforces.** Each tenant's PHP-FPM
+  runs as its own systemd instance with bound cgroup CPU/memory/task caps, so one
+  tenant can no longer starve the box or its neighbours.
+- **CSP + HSTS** now cover the panel's HTML document, not just API responses.
+- **phpMyAdmin** is no longer exposed on the bare `:80` host outside panel auth.
+- **MariaDB/PostgreSQL bind to localhost** — remote DB access is opt-in, so a
+  firewall slip can't expose customer databases.
+- Self-healing BIND master include; safer default-server handling.
 
 ## [1.1.0] — 2026-06-13
 
