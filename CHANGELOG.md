@@ -10,6 +10,20 @@ page — the installer checks every download against them.
 
 ## [Unreleased]
 
+## [1.3.4] — 2026-06-13
+
+### Added
+- **Reassign a domain to another account.** Owners (and resellers, for accounts
+  they manage) can move a site to a different account from the Domains page: the
+  document root is relocated into the new owner's home, the vhost is rebuilt to
+  serve it as them, and any installed certificate is re-applied under the new
+  owner.
+
+### Fixed
+- **The File Manager now works for owners (and any account without a site yet).**
+  An account with no hosting home couldn't create files or directories; the File
+  Manager now provisions the account's home on first use.
+
 ## [1.3.3] — 2026-06-13
 
 ### Fixed
