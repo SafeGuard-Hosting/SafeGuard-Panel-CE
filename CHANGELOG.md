@@ -10,6 +10,14 @@ page — the installer checks every download against them.
 
 ## [Unreleased]
 
+## [1.3.3] — 2026-06-13
+
+### Fixed
+- **The panel now reports its real version.** The version shown in the UI was a
+  database seed (`1.0.0`) that nothing ever updated, so the panel kept showing
+  `1.0.0` regardless of the running build. The binary now carries its own version
+  and syncs it on boot, independent of the update server's reachability.
+
 ## [1.3.2] — 2026-06-13
 
 ### Added
