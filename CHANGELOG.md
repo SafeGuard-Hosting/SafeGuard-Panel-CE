@@ -10,6 +10,16 @@ page — the installer checks every download against them.
 
 ## [Unreleased]
 
+## [1.3.15] — 2026-06-13
+
+### Changed
+- **Updates never downgrade.** An update is only offered when the published version
+  is genuinely newer than the running build, so a bad or rolled-back release
+  manifest cannot push an older version onto the panel.
+- **Rollback covers the privileged worker too.** The post-update health check now
+  requires both the panel and its worker to come up healthy; a release that breaks
+  the worker auto-rolls-back instead of leaving the panel up with a dead worker.
+
 ## [1.3.12] — 2026-06-13
 
 ### Fixed
