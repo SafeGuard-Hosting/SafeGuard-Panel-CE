@@ -10,6 +10,17 @@ page — the installer checks every download against them.
 
 ## [Unreleased]
 
+## [1.3.21] — 2026-06-14
+
+### Added
+- **Download my data (GDPR).** Profile → "Download my data" exports a
+  machine-readable copy of all personal data the panel holds for your account
+  (right of access / data portability); secrets are excluded.
+
+### Changed
+- **Erasure hardening.** Deleting an account now also clears IP addresses from
+  retained audit-log entries, so no network identifier lingers.
+
 ## [1.3.20] — 2026-06-14
 
 ### Added
