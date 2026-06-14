@@ -10,6 +10,18 @@ page — the installer checks every download against them.
 
 ## [Unreleased]
 
+## [1.3.8] — 2026-06-13
+
+### Added
+- **Actions are logged in the notification bell.** Successes, warnings and errors
+  are now recorded in the notifications menu — not only shown as a passing toast —
+  so you keep a running log of what occurred.
+
+### Changed
+- **Buttons show a loading state automatically.** A button that starts work greys
+  out and shows a spinner until it finishes, giving clear feedback and preventing
+  double-submits. Toasts continue to appear in the bottom-right.
+
 ## [1.3.7] — 2026-06-13
 
 ### Changed
