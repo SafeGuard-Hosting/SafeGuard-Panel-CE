@@ -10,6 +10,22 @@ page — the installer checks every download against them.
 
 ## [Unreleased]
 
+## [1.3.6] — 2026-06-13
+
+### Fixed
+- **System Information reports the real datastore.** The dashboard's
+  “Database” field showed a hardcoded placeholder; it now reports the actual
+  engine — the panel's embedded SQLite store — and its version. (PostgreSQL and
+  MariaDB are for *tenant* databases, not the panel's own store.)
+
+## [1.3.5] — 2026-06-13
+
+### Fixed
+- **The dashboard shows the running panel version.** The System Information
+  endpoint returned a hardcoded development value, so the version shown never
+  matched the installed build even though the panel already tracked its real
+  build version internally. The endpoint now reports the real build version.
+
 ## [1.3.4] — 2026-06-13
 
 ### Added
