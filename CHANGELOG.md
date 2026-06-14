@@ -10,6 +10,17 @@ page — the installer checks every download against them.
 
 ## [Unreleased]
 
+## [1.3.7] — 2026-06-13
+
+### Changed
+- **The Updates page now runs the real, installer-style update flow.** Its
+  “Install” button previously called a placeholder that only described the steps
+  and took no action. It now works like the first-time setup installer: clicking
+  Install reveals pre-flight checks (disk, memory, database integrity, schema,
+  service health), and only once they pass can you proceed to the staged,
+  GPG-verified pipeline — download → verify → swap (previous binary kept for
+  rollback) → migrate → restart — with live progress.
+
 ## [1.3.6] — 2026-06-13
 
 ### Fixed
