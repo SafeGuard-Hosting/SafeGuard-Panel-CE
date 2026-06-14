@@ -10,6 +10,13 @@ page — the installer checks every download against them.
 
 ## [Unreleased]
 
+## [1.3.11] — 2026-06-13
+
+### Fixed
+- **Updates page changelog no longer runs off-screen.** Release notes on the
+  Updates page were rendered in a non-wrapping block that overflowed the card;
+  they now appear as a clean, labeled “What’s new” block that wraps to fit.
+
 ## [1.3.10] — 2026-06-13
 
 ### Fixed
