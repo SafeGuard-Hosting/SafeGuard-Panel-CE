@@ -10,6 +10,19 @@ page — the installer checks every download against them.
 
 ## [Unreleased]
 
+## [1.3.10] — 2026-06-13
+
+### Fixed
+- **Self-update could fail with a checksum mismatch behind a CDN.** A CDN in front
+  of the update host could serve a stale cached `frontend.tar.gz` from a previous
+  release under the same URL, failing the SHA-256 check (the update aborted safely
+  but could not proceed). Artifact downloads are now cache-busted so they are
+  always fetched fresh; signature and checksum verification remain the source of
+  trust.
+- **Some owner notifications were silently dropped** (update finished/aborted,
+  scheduled-restart completion, critical security events) due to a wrong column
+  name; they now record in the notification bell.
+
 ## [1.3.9] — 2026-06-13
 
 ### Added
