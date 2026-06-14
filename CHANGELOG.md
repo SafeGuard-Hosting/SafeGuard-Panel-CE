@@ -10,6 +10,28 @@ page — the installer checks every download against them.
 
 ## [Unreleased]
 
+## [1.3.22] — 2026-06-14
+
+### Added
+- **Privacy Notice (GDPR transparency).** A plain-language privacy notice is now
+  built into the panel at `/privacy`, linked from the login screen and from
+  Profile → Privacy & your data. It explains what data the panel stores, the
+  legal bases, retention periods, subprocessor categories and your rights, using
+  your own branding and contact details.
+- **Telemetry opt-out.** Administrator Settings → Privacy & Telemetry can turn
+  off the automatic update check. While off, the panel makes no network call to
+  the update server on its own; a manual "Check Now" still works on demand.
+- **Configurable log retention.** Audit-log and sign-in-history retention periods
+  are now settings (sign-in history was previously fixed at 90 days).
+- **Privacy contact email** and an optional **external privacy-policy URL** (set
+  it to redirect the in-panel notice to your own published policy).
+
+### Fixed
+- **Disk Usage, System Stats and Cron Output no longer error for owner accounts.**
+  These pages returned a 500 ("could not open home directory") for an account
+  without a writable hosting home; they now show an empty state instead. The
+  per-user file jail is unchanged.
+
 ## [1.3.21] — 2026-06-14
 
 ### Added
