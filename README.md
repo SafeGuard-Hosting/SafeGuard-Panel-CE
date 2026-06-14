@@ -24,7 +24,7 @@ for AlmaLinux 9.
 Fresh **AlmaLinux / Rocky / CloudLinux 9** box → working panel in minutes:
 
 ```sh
-curl -sSL https://install.safeguardpanel.ca | sudo bash
+curl -sSL https://install.safeguardpanel.ca/install.sh | sudo bash
 ```
 
 <sub>Full install options, requirements and what the installer does: [Install guide ↓](#-install-on-almalinux-9)</sub>
@@ -343,7 +343,7 @@ checklist live in **[SECURITY.md](SECURITY.md)**. Highlights:
 One command on a fresh **AlmaLinux / Rocky / CloudLinux 9** box — runs on **1 vCPU / 1 GB RAM / 10 GB disk**, with 2 GB / 20 GB recommended once you're hosting real sites (add more for the optional Imunify360 + ClamAV agents):
 
 ```sh
-curl -sSL https://install.safeguardpanel.ca | sudo bash
+curl -sSL https://install.safeguardpanel.ca/install.sh | sudo bash
 ```
 
 …or install offline / air-gapped from the official self-contained release
