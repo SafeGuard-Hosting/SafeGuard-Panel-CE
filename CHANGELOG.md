@@ -10,6 +10,13 @@ page — the installer checks every download against them.
 
 ## [Unreleased]
 
+## [1.3.20] — 2026-06-14
+
+### Added
+- **Support Access for owners.** The support-access keys feature (generate a code
+  that lets support log into your account with limited, time-boxed access) is now
+  linked in the owner Support section, not just the user view.
+
 ## [1.3.19] — 2026-06-14
 
 ### Removed
