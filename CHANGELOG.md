@@ -10,6 +10,14 @@ page — the installer checks every download against them.
 
 ## [Unreleased]
 
+## [1.3.12] — 2026-06-13
+
+### Fixed
+- **“Check Now” on the Updates page now performs a real, immediate check.** It
+  previously only re-read the last daily check, so a newly published release did
+  not appear until the next scheduled check; it now queries the update server on
+  demand (with a loading indicator).
+
 ## [1.3.11] — 2026-06-13
 
 ### Fixed
