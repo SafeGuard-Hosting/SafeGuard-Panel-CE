@@ -10,6 +10,19 @@ page — the installer checks every download against them.
 
 ## [Unreleased]
 
+## [1.3.9] — 2026-06-13
+
+### Added
+- **Maintenance overlay during updates.** Proceeding with a panel update now shows
+  a full-screen overlay that blocks the panel while it verifies, swaps and
+  restarts — so nothing is submitted against a backend mid-restart — then reloads
+  automatically onto the new version when it is back.
+
+### Changed
+- **No more scrollbars.** Vertical and horizontal scrollbars are hidden panel-wide
+  (content stays scrollable), the page no longer scrolls sideways, and wide
+  content is kept within the viewport so it fits the screen and stays visible.
+
 ## [1.3.8] — 2026-06-13
 
 ### Added
