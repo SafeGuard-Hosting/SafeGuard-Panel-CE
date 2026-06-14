@@ -10,6 +10,14 @@ page — the installer checks every download against them.
 
 ## [Unreleased]
 
+## [1.3.17] — 2026-06-14
+
+### Fixed
+- **Dashboard sidebar statistics are now role-correct.** The Owner, Reseller and
+  User dashboard views previously all showed the logged-in account's own stats.
+  Each view now shows the right scope: User sees their own account, Reseller sees
+  aggregates across the accounts they manage, and Owner sees server-wide totals.
+
 ## [1.3.16] — 2026-06-13
 
 ### Changed
