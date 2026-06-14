@@ -10,6 +10,14 @@ page — the installer checks every download against them.
 
 ## [Unreleased]
 
+## [1.3.19] — 2026-06-14
+
+### Removed
+- **Panel licensing module.** SafeGuard Panel is free — there is no panel license
+  to manage — so the licensing screen, its dashboard tile, and panel-license
+  verification were removed. Billing-system integration (managed hosting) and the
+  security engine's own licensing (e.g. Imunify360) are unaffected.
+
 ## [1.3.18] — 2026-06-14
 
 ### Added
