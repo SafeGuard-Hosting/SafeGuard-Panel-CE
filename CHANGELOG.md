@@ -10,6 +10,19 @@ page — the installer checks every download against them.
 
 ## [Unreleased]
 
+## [1.3.18] — 2026-06-14
+
+### Added
+- **Real disk & inode usage.** Account disk usage is now measured by the privileged
+  worker (which can read tenant homes) and inode counts are tracked too, so the
+  dashboard shows real numbers instead of zero.
+
+### Changed
+- **Unlimited limits show the ∞ symbol** (e.g. `0 / ∞`) instead of "Unlimited".
+- **Header CPU/RAM/Disk/Inodes is scoped to your view.** Owner sees server-wide
+  figures; Reseller sees disk + inodes across managed accounts; User sees their
+  own. Whole-server CPU/RAM are shown to the owner only.
+
 ## [1.3.17] — 2026-06-14
 
 ### Fixed
