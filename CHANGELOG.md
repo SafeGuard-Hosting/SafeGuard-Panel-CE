@@ -10,6 +10,14 @@ page — the installer checks every download against them.
 
 ## [Unreleased]
 
+## [1.3.16] — 2026-06-13
+
+### Changed
+- **Auto-rollback now restores the database too.** When an update is rolled back
+  because the new build is unhealthy, the panel also restores the database backup
+  taken just before the update, so a faulty release — including a bad schema
+  migration — is fully undone, not just the program files.
+
 ## [1.3.15] — 2026-06-13
 
 ### Changed
