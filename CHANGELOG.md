@@ -10,6 +10,20 @@ page — the installer checks every download against them.
 
 ## [Unreleased]
 
+## [1.3.25] — 2026-06-15
+
+### Fixed
+- **File Manager download** no longer fails with a permission error.
+- **Disk Usage** now reports real numbers for hosting accounts (measured by the
+  privileged worker, which can read locked-down tenant homes).
+- **phpMyAdmin / Adminer** embed loads again instead of showing "not configured".
+
+### Changed
+- **Themes** management is consolidated to one page at **Settings → Theme**
+  (reached from the user menu), scoped by role; the separate sidebar link was
+  removed. The personal theme picker in the user menu is unchanged.
+- The owner **"Change Passwords"** link is now **"Change User Passwords"**.
+
 ## [1.3.24] — 2026-06-15
 
 ### Fixed
