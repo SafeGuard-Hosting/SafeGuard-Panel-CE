@@ -10,6 +10,14 @@ page — the installer checks every download against them.
 
 ## [Unreleased]
 
+## [1.3.32] — 2026-06-15
+
+### Improved
+- **Message All Users** asks for confirmation before sending a broadcast.
+- **Modules** page links each enabled module to its management page (⚙️).
+- **Updates**: the changelog can be popped out into a larger view, with a link
+  to the full release history on GitHub.
+
 ## [1.3.31] — 2026-06-15
 
 ### Improved
