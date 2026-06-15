@@ -10,6 +10,16 @@ page — the installer checks every download against them.
 
 ## [Unreleased]
 
+## [1.3.29] — 2026-06-15
+
+### Added
+- **More real one-click installs.** Matomo, Nextcloud, Joomla, MediaWiki and
+  phpBB now install for real — the panel stages the app into the document root,
+  provisions a dedicated database, and hands the credentials to the app's own web
+  installer to finish setup. Apps that require Composer/Node/Ruby/Docker show a
+  clear "manual setup" notice instead of a fake success, and removing an install
+  drops its database and files.
+
 ## [1.3.28] — 2026-06-15
 
 ### Added
