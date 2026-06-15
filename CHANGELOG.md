@@ -10,6 +10,14 @@ page — the installer checks every download against them.
 
 ## [Unreleased]
 
+## [1.3.38] — 2026-06-15
+
+### Added
+- **Unsaved-changes navigation guard**: navigating to another page while a form
+  has unsaved edits now shows a "Discard unsaved changes?" prompt (Keep editing /
+  Leave page), not just on browser refresh/close. Applies app-wide to forms that
+  track unsaved state.
+
 ## [1.3.37] — 2026-06-15
 
 ### Added
