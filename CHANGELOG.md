@@ -10,6 +10,21 @@ page — the installer checks every download against them.
 
 ## [Unreleased]
 
+## [1.3.36] — 2026-06-15
+
+### Added
+- **Server Statistics — per-disk breakdown + SMART**: lists every real filesystem
+  (device, type, mount, used/total). Click a disk to view its SMART report —
+  overall health, model, serial, capacity, temperature, power-on hours, and the
+  full `smartctl` output. Read via the privileged worker; shown where the hardware
+  exposes SMART, and reported as unavailable on virtualized/cloud disks rather
+  than failing.
+- **Resource Limits — alerts & thresholds**: click an account to set per-account
+  disk/bandwidth usage alert thresholds (checked hourly, raised as in-panel
+  notifications with a 24h cooldown per metric), or send a one-off info/warning/
+  critical alert straight to a user. (Per-user CPU/I/O *enforcement* still
+  requires CloudLinux LVE on the host.)
+
 ## [1.3.35] — 2026-06-15
 
 ### Fixed
