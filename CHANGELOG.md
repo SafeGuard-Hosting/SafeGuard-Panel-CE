@@ -10,6 +10,21 @@ page — the installer checks every download against them.
 
 ## [Unreleased]
 
+## [1.3.37] — 2026-06-15
+
+### Added
+- **Multi-target off-site backups**: configure multiple backup destinations —
+  Backblaze B2, Amazon S3 (or any S3-compatible store), and SSH/SFTP — under
+  System Backup Settings. Each backup is encrypted once and uploaded to every
+  enabled destination, with per-destination success/failure tracked; the first
+  successful copy is used for download/restore, and deleting a backup removes
+  every off-site copy. Add/edit/test/delete destinations from the UI (secrets are
+  never echoed back). The legacy single-Backblaze-B2 settings still work when no
+  destinations are configured.
+- **Throttled backup queue**: a configurable global *max concurrent jobs* (default
+  2) keeps a burst of manual or scheduled backups from overloading the server;
+  extra jobs queue.
+
 ## [1.3.36] — 2026-06-15
 
 ### Added
