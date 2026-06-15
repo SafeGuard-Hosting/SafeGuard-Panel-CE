@@ -10,6 +10,14 @@ page — the installer checks every download against them.
 
 ## [Unreleased]
 
+## [1.3.31] — 2026-06-15
+
+### Improved
+- **Process Monitor** shows each process's owning user and can filter by
+  user / process / PID.
+- **Maintenance** explains, in plain language, what each internal task does.
+- **Notifications**: clicking one in the bell expands it to the full message.
+
 ## [1.3.30] — 2026-06-15
 
 ### Improved
