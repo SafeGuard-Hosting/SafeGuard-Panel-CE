@@ -10,6 +10,15 @@ page — the installer checks every download against them.
 
 ## [Unreleased]
 
+## [1.3.33] — 2026-06-15
+
+### Improved
+- **Bandwidth Enforcement**: the warning threshold (% of quota) is now configurable.
+- **Owner Settings**: the auto-restart Services field explains it expects a JSON
+  array of systemd service names.
+- **Unsaved-changes warning** before refreshing/closing/leaving a settings form
+  with unsaved edits.
+
 ## [1.3.32] — 2026-06-15
 
 ### Improved
