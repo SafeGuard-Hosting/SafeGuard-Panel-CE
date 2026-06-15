@@ -10,6 +10,17 @@ page — the installer checks every download against them.
 
 ## [Unreleased]
 
+## [1.3.23] — 2026-06-14
+
+### Fixed
+- **Database management now works on AlmaLinux.** Creating or deleting a MySQL/
+  MariaDB database or user failed with “Access denied” because the panel tried to
+  authenticate as the database superuser directly (which the OS only allows for
+  root). Database administration now runs through the privileged root worker via
+  a structured, validated operation — the worker builds the SQL itself from
+  checked identifiers and never executes SQL handed to it by the panel, keeping
+  the panel's privilege-separation guarantees intact.
+
 ## [1.3.22] — 2026-06-14
 
 ### Added
