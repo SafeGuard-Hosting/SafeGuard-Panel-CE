@@ -10,6 +10,21 @@ page — the installer checks every download against them.
 
 ## [Unreleased]
 
+## [1.3.28] — 2026-06-15
+
+### Added
+- **Real one-click WordPress install.** Installing WordPress now provisions it
+  for real: a dedicated database and user are created, WordPress core is
+  downloaded and staged into the document root via the privileged worker, and a
+  working `wp-config.php` is written; WordPress finishes its first-run setup on
+  first visit. Removing the install also drops its database and files. (More
+  catalog apps will follow on this pipeline.)
+
+### Fixed
+- **File uploads and app installs** could fail with a spool-directory permission
+  error; the privileged worker now ensures the shared spool directory is owned
+  by the panel user on startup (self-heals on update).
+
 ## [1.3.25] — 2026-06-15
 
 ### Fixed
