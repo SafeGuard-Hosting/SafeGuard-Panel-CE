@@ -10,6 +10,12 @@ page — the installer checks every download against them.
 
 ## [Unreleased]
 
+## [1.3.35] — 2026-06-15
+
+### Fixed
+- **Security page performance**: no longer waits ~4 seconds on every load — the
+  security rating is now cached for 5 minutes.
+
 ## [1.3.34] — 2026-06-15
 
 ### Added
