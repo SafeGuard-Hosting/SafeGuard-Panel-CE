@@ -10,6 +10,16 @@ page — the installer checks every download against them.
 
 ## [Unreleased]
 
+## [1.3.30] — 2026-06-15
+
+### Improved
+- **Server Statistics** tiles (Accounts, Domains, Open Tickets) are now clickable
+  and navigate to their pages.
+- **Services**: stopping a service now asks for confirmation first.
+- **CSF firewall** shows your own IP and refuses to add it to the deny list,
+  preventing an accidental self-lockout.
+- Renamed **"DB Monitor"** to **"Database Monitor"**.
+
 ## [1.3.29] — 2026-06-15
 
 ### Added
