@@ -10,6 +10,13 @@ page — the installer checks every download against them.
 
 ## [Unreleased]
 
+## [1.3.34] — 2026-06-15
+
+### Added
+- **Owner PHP Settings page**: choose which PHP versions (8.0–8.5, tagged
+  supported/recommended/end-of-life) are allowed server-wide and set the default;
+  enabled versions appear in every account's per-site PHP selector.
+
 ## [1.3.33] — 2026-06-15
 
 ### Improved
