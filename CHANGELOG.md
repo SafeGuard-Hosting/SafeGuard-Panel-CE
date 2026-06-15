@@ -10,6 +10,17 @@ page — the installer checks every download against them.
 
 ## [Unreleased]
 
+## [1.3.24] — 2026-06-15
+
+### Fixed
+- **Fixed a panel-wide hang when managing feature sets and packages.** The
+  feature-sets list issued a per-row database query while the list's own result
+  set was still open; with the panel's single-writer database that self-
+  deadlocked, so every database-backed page (login, dashboard, …) stopped
+  responding while only the health check stayed up. It appeared right after
+  creating a feature set and reopening the list. The list now reads its rows
+  first and looks up package memberships afterward.
+
 ## [1.3.23] — 2026-06-14
 
 ### Fixed
