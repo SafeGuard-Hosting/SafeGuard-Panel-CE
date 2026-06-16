@@ -10,6 +10,25 @@ page — the installer checks every download against them.
 
 ## [Unreleased]
 
+## [1.3.43] — 2026-06-16
+
+### Added
+- **Adminer login prefill**: pick a database in the embed and Adminer's login is
+  pre-filled (driver from the engine, server, username, database) — you enter only
+  the password, and Adminer's permanent login keeps you in after that.
+- **Deep-link login**: opening a panel URL while logged out now returns you to
+  that exact page after you sign in, instead of the dashboard.
+
+### Fixed
+- **Scroll position is restored** when you navigate back to the dashboard (it no
+  longer jumps to the top); new navigations still start at the top.
+
+### Changed
+- **User menu cleanup**: removed Change Password and Two-Step Auth from the
+  top-right menu — both now live on the **Profile** page, where 2FA is fully
+  managed (setup, backup codes, disable) inline.
+- App Manager moved into the **Websites & Apps** group.
+
 ## [1.3.42] — 2026-06-16
 
 ### Added
