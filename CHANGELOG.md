@@ -10,6 +10,31 @@ page — the installer checks every download against them.
 
 ## [Unreleased]
 
+## [1.3.41] — 2026-06-16
+
+### Added
+- **Hostname SSL** (owner): view and install a trusted TLS certificate for the
+  panel's own hostname (separate from customers' domain certificates). The new
+  cert is validated with `nginx -t` and rolled back automatically if it fails.
+- **Perl Modules** (user): list the Perl modules available to your account and
+  install CPAN modules into your `~/perl5` (requires cpanm on the server).
+
+### Changed
+- **Navigation reorganized** across owner, reseller and user views: new
+  **Security** and **Integrations** categories, clearer grouping, and renamed
+  integrations (Email Integration, Billing Integration, Remote Backup Integration).
+  Updates & Repair moved next to Support.
+- **Add Account** (owner): one form now creates a user, reseller, or owner via an
+  account-type picker, replacing the separate create screens.
+
+### Fixed
+- **System Services** start/stop/restart now work — the panel runs unprivileged,
+  so service control (and background auto-restart of crashed services) is routed
+  through the privileged worker instead of failing silently.
+- Removed duplicate and dead navigation entries (Plugin Manager, Reseller
+  Statistics, Mailing Lists, Manage User Backups, CustomBuild, System Packages,
+  and the redundant Change Passwords page).
+
 ## [1.3.40] — 2026-06-15
 
 ### Added
