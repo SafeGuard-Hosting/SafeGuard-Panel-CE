@@ -10,6 +10,14 @@ page — the installer checks every download against them.
 
 ## [Unreleased]
 
+## [1.3.39] — 2026-06-15
+
+### Fixed
+- **SSL page showed a blank "Issuer"** for certificates whose issuer has no Common
+  Name (e.g. Cloudflare Origin certificates, which identify the CA only by
+  Organization / Organizational Unit). The issuer now falls back to OU/O so it's
+  always shown.
+
 ## [1.3.38] — 2026-06-15
 
 ### Added
