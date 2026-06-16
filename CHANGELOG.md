@@ -10,6 +10,30 @@ page — the installer checks every download against them.
 
 ## [Unreleased]
 
+## [1.3.42] — 2026-06-16
+
+### Added
+- **Ticket forwarding bridge**: pipe panel support tickets out to an external
+  billing/helpdesk system (e.g. WHMCS) over email, with a stable `[SGP #id]`
+  subject token; staff replies flow back into the panel ticket via an inbound
+  reply webhook. Configure it under Manage Tickets. **Support Tickets** is also now
+  a toggleable module (disable the built-in system entirely if you only use an
+  external one).
+- **Help** and **API Documentation** are now available to resellers and owners,
+  not just users.
+
+### Changed
+- **Adminer is now the single, universal database tool** for MySQL/MariaDB *and*
+  PostgreSQL (replacing the separate phpMyAdmin/pgAdmin links). The Database
+  Monitor and Databases pages open Adminer; phpMyAdmin is no longer installed by
+  default. Connect any external client you prefer over the network.
+- **Owner Account Manager streamlined**: a single **Add Account** form creates a
+  user, reseller, or owner via a role picker; "Move Users Between Resellers" is now
+  a bulk action right in **Show All Users**; removed the redundant Resellers,
+  Owner Accounts, My Users and Change Passwords entries.
+- Navigation tidy-ups: Support Access Keys moved under Support; removed the
+  duplicate Two-Step Authentication tile (it's in the user menu).
+
 ## [1.3.41] — 2026-06-16
 
 ### Added
