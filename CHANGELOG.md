@@ -10,6 +10,14 @@ page — the installer checks every download against them.
 
 ## [Unreleased]
 
+## [1.3.40] — 2026-06-15
+
+### Added
+- **Email Summary** (owner/reseller): a per-domain overview of mailboxes, total/used
+  mailbox storage, and forwarder/autoresponder counts, with rolled-up totals — an
+  at-a-glance view of email usage across every account you manage. (The Owner Tools
+  "E-mail Summary" tile now opens a real page instead of a dead link.)
+
 ## [1.3.39] — 2026-06-15
 
 ### Fixed
