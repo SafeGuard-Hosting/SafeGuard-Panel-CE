@@ -10,6 +10,15 @@ page — the installer checks every download against them.
 
 ## [Unreleased]
 
+## [1.3.46] — 2026-06-17
+
+### Fixed
+- **System Services** start/stop/restart now works: the PHP-FPM control targeted
+  the distro `php-fpm.service` (left disabled) instead of the panel's own
+  `safeguard-php`, so it always failed. Verified on a live server.
+- Services not installed on the host (ClamAV, Memcached, …) now show as
+  "not installed" with actions hidden, instead of failing with "Unit not found".
+
 ## [1.3.45] — 2026-06-17
 
 ### Added
