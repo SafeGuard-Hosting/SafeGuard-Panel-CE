@@ -10,6 +10,37 @@ page — the installer checks every download against them.
 
 ## [Unreleased]
 
+## [1.3.45] — 2026-06-17
+
+### Added
+- **App hosting that runs**: App Manager starts/stops/restarts apps as real
+  per-app services with dependency install and live logs; Git, Docker and the
+  Website Builder's publish run on the server as the account owner.
+- **WordPress Toolkit** fully wired: update core/plugins/themes, integrity check,
+  plugin/theme inventory, maintenance mode, plugin/theme sets, one-click harden,
+  **Clone**, **Copy Data**, and a true one-time admin login.
+- **Joomla/Drupal** toolkits report the real installed version + update-available.
+- **Cache Manager**: per-layer enable/disable, with correct PHP/Varnish/Valkey
+  detection.
+- **API keys**: per-key IP allow-list and expiry date.
+- **Repair page rollback** to the previous version (restores prior build +
+  database and restarts).
+
+### Changed
+- New **Files** group (File Manager, FTP, Password-Protected Directories, Git,
+  Backup & Restore); **Domains**/**Databases** groups; Hotlink Protection under
+  Security; WordPress Toolkit moved to `/wordpress`.
+- Lowercase breadcrumbs; removed the top-bar domain link; right-click re-enabled.
+- **Updates & Repair** split — updates on the Updates page, **Repair** is repair +
+  rollback only.
+- **Import History** renamed (upload lives in the Migration Wizard).
+- Support keys auto-delete on expiry or removal.
+
+### Fixed
+- **System Services** surfaces the real error on a failed start/stop/restart.
+- **Security Advisor** loads instantly (stale-while-revalidate cache).
+- Reliable scroll restoration; staging preview URLs use the server's own hostname.
+
 ## [1.3.44] — 2026-06-16
 
 ### Added
