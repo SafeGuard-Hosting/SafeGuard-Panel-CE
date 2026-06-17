@@ -10,6 +10,24 @@ page — the installer checks every download against them.
 
 ## [Unreleased]
 
+## [1.3.48] — 2026-06-17
+
+### Fixed
+- **Cron jobs now actually run** — installed into the tenant's real crontab and
+  executed as that user (previously stored but never run).
+- **Cache purge is real** — runs the actual per-layer tool (Varnish ban / Valkey
+  flush / PHP-FPM reload); disabling a layer clears it; not-installed layers are
+  reported honestly.
+
+### Security
+- Removed the DevTools blocking/detection (no real protection; it reported user
+  behavior). Tightened the internal wp-cli `db` boundary.
+
+### Docs
+- Added a PCI-DSS & DORA compliance-readiness document (the panel is out of
+  cardholder-data scope). GDPR transparency/export/erasure/telemetry-opt-out are
+  already in place.
+
 ## [1.3.47] — 2026-06-17
 
 ### Added
