@@ -10,6 +10,16 @@ page — the installer checks every download against them.
 
 ## [Unreleased]
 
+## [1.3.47] — 2026-06-17
+
+### Added
+- **App Manager — serve apps on their domain**: a new **Expose** toggle points the
+  domain's nginx vhost at the app (reverse-proxy to its port) instead of static
+  files — SSL-aware, with WebSocket support and config rollback. Toggling off
+  restores the static site. App hosting is now complete end-to-end.
+- **Ticket management**: staff can set status (open/answered/closed) and priority
+  (low/medium/high/urgent) from the ticket thread.
+
 ## [1.3.46] — 2026-06-17
 
 ### Fixed
