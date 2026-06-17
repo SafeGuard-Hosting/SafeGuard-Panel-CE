@@ -10,6 +10,34 @@ page — the installer checks every download against them.
 
 ## [Unreleased]
 
+## [1.3.44] — 2026-06-16
+
+### Added
+- **Adminer password auto-fill (owner opt-in)**: a new owner setting (off by
+  default) lets the embedded Adminer login fill in completely — including the
+  password — so picking a database logs you straight in and switching between
+  databases is seamless. Off keeps passwords one-way hashed (the secure default);
+  on stores newly created/changed DB passwords encrypted at rest, and turning it
+  back off wipes every stored copy.
+- **Change a database user's password**: the Databases page now has a Change
+  Password action that updates the password on the engine (MySQL/MariaDB and
+  PostgreSQL) and keeps the panel in sync.
+
+### Changed
+- **Cleaner embedded Adminer**: the stray language selector and the redundant
+  "permanent login" checkbox are hidden inside the panel.
+- **Reorganised navigation**: new **Domains** group (Domains, Subdomain
+  Management, DNS Management, Domain Pointers, Site Redirects) and **Databases**
+  group (Databases, Adminer); Webmail and Catch-All E-mail moved under E-Mail
+  Manager; Perl Modules moved under Websites & Apps.
+- **One "Manage Packages" module**: user and reseller packages are managed in one
+  place. Owners manage both kinds (and choose the type when creating); resellers
+  manage user packages only. Creating reseller packages remains owner-only.
+
+### Removed
+- **Message Templates**: the feature only ever saved templates (nothing applied
+  them), so it has been removed.
+
 ## [1.3.43] — 2026-06-16
 
 ### Added
