@@ -10,6 +10,20 @@ page — the installer checks every download against them.
 
 ## [Unreleased]
 
+## [1.3.49] — 2026-06-17
+
+### Added
+- **Real OS vulnerability scanning & patching**: the server scans installed
+  packages against the CVE database (via `dnf updateinfo`, mapping packages to
+  CVEs + NVD severity) and can apply security updates. Daily automatic scan with
+  owner alerts on new critical/important CVEs, plus an opt-in **Auto-patch**.
+- New **"OS Security Updates (CVE)"** card on the Vulnerability Scan page —
+  severity breakdown, per-CVE NVD links, Scan/Apply, Auto-patch toggle.
+
+### Fixed
+- The scanner's package-CVE and kernel checks were always-pass placeholders;
+  they now reflect the real scan and report pending security updates.
+
 ## [1.3.48] — 2026-06-17
 
 ### Fixed
