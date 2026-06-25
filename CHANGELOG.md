@@ -10,6 +10,21 @@ page — the installer checks every download against them.
 
 ## [Unreleased]
 
+## [1.3.53] — 2026-06-25
+
+### Fixed
+- **Docker container name conflicts.** Deleting a container now removes the real
+  engine container by both id and its deterministic name, and running a container
+  is idempotent (any leftover with the same name is cleared first) — so a failed
+  delete or a stub entry can no longer leave an orphan that blocks recreating the
+  same name ("container name … is already in use").
+
+### Internal
+- Refactored the Docker run path into a single idempotent helper (used by both
+  create and recreate), made the engine-status probe accurate, aligned the local
+  CLI fallback with the worker's hardened flags, and added status-reconciliation
+  unit tests.
+
 ## [1.3.52] — 2026-06-25
 
 ### Added
