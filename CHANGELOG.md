@@ -10,6 +10,31 @@ page — the installer checks every download against them.
 
 ## [Unreleased]
 
+## [1.3.52] — 2026-06-25
+
+### Added
+- **Edit containers** — every container now has an Edit action to change its
+  image, port mappings and environment variables. The Run/Edit dialog gained a
+  proper **environment-variables** editor (add/remove rows) and **multiple port
+  mappings**; editing recreates the container under the same name.
+- **Live container status** — the container list now reflects the real Docker
+  state instead of a stored value, so a crash-looping container shows **error**
+  (with the live "Restarting (1)…" detail) rather than a false "running". The
+  list auto-refreshes every 5s and the logs view tails every few seconds.
+- **Owner Docker Engine management** — Administrator Settings has a Docker Engine
+  card showing install status/version and an **Uninstall** action (background
+  job; image data under /var/lib/docker is preserved). Install stays on the
+  Docker page while the engine is absent.
+
+### Changed
+- The **Updates** page now checks for a new version automatically on load
+  (honouring the privacy opt-out — no network call when automatic checks are
+  disabled). "Check Now" remains the explicit, forced check.
+
+### Fixed
+- The Docker install card no longer briefly shows the Install button again if the
+  install finished while the page was navigated away.
+
 ## [1.3.51] — 2026-06-25
 
 ### Added
