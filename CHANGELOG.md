@@ -10,6 +10,18 @@ page — the installer checks every download against them.
 
 ## [Unreleased]
 
+## [1.3.50] — 2026-06-25
+
+### Added
+- **GitHub Container Registry (GHCR) support** in the Docker module. The Run
+  Container dialog now has a **Docker Hub / GHCR** registry toggle. Because GHCR
+  has no global search API, GHCR mode takes an exact `owner/image` and lists its
+  available **tags** via the Docker Registry v2 API (works for any public image)
+  so you can pick a version, then runs `ghcr.io/owner/image:tag`.
+- Images from any registry can be pulled/run by full reference (e.g.
+  `ghcr.io/owner/image:tag`); private GHCR images run by exact reference once the
+  host is logged in to ghcr.io.
+
 ## [1.3.49] — 2026-06-17
 
 ### Added
