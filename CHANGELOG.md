@@ -10,6 +10,21 @@ page — the installer checks every download against them.
 
 ## [Unreleased]
 
+## [1.3.51] — 2026-06-25
+
+### Added
+- **Owner-initiated Docker Engine install.** When the engine isn't present, the
+  Docker page now shows the owner an **Install Docker Engine** button instead of
+  only the "simulated" notice. It installs Docker CE on the host (RHEL/AlmaLinux 9,
+  via `dnf`) through the privileged worker as a background job with a live
+  progress log, then enables the daemon — no shell access needed. Docker is still
+  never bundled into the base install, keeping the default attack surface small.
+
+### Fixed
+- GHCR image search now accepts a pasted full reference — a `:tag` or `@digest`
+  suffix (e.g. `ghcr.io/owner/image:latest`) is stripped before the tag lookup
+  instead of failing validation.
+
 ## [1.3.50] — 2026-06-25
 
 ### Added
