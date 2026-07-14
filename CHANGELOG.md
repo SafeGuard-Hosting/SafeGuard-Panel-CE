@@ -10,6 +10,41 @@ page — the installer checks every download against them.
 
 ## [Unreleased]
 
+## [1.3.54] — 2026-07-14
+
+### Added
+- **SafeGuard Glass** — the panel's own signature theme: a frosted-glass
+  sidebar shell with a soft blurred backdrop, colourful app icons, a gauge
+  dashboard and rounded cards, in light or dark. It is now **first in the theme
+  list and the factory default** (competitor themes stay selectable, and
+  existing accounts keep whatever they chose). Activating a theme is now
+  WYSIWYG — it applies to your own view immediately.
+- **Real multi-panel migration.** The Migration Wizard now imports full accounts,
+  not just files: databases (with dump import), DNS zones, email accounts +
+  forwarders, FTP accounts, cron jobs and SSL certificates — from cPanel,
+  DirectAdmin, Plesk, HestiaCP/Vesta, and a generic files+SQL fallback. Imported
+  domains are provisioned with a real web vhost so migrated sites serve
+  immediately. The summary reports per-component results. (Mailbox/DB/FTP
+  passwords aren't portable between panels, so those are created fresh and
+  flagged for reset.)
+- **Faithful theme previews** on the Themes page — each card renders a miniature
+  of that shell drawn from its own palette, with proper layout labels.
+- **Branded error page** at the router level: theme-styled fallback for any
+  crash (not just per-page), plus automatic one-time reload recovery when a
+  browser holds a stale build after a panel update.
+
+### Changed
+- The **Updates** page checks for a new version on load (honouring the privacy
+  opt-out).
+- Glass theme guardrails: data tables and embedded tools (Adminer, file manager,
+  webmail) render on solid surfaces (readability + performance); mobile gets a
+  slide-over navigation drawer.
+
+### Fixed
+- Restored theme accent colours and hovers on the HestiaCP/ISPConfig/DirectAdmin
+  Standard themes (the `brand`/`surface-hover` tokens were undefined, so accents
+  and the ISPConfig logout button rendered invisibly).
+
 ## [1.3.53] — 2026-06-25
 
 ### Fixed
