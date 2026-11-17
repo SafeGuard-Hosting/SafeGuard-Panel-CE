@@ -76,7 +76,7 @@ and a modern React app:
 | 🎨 **6 switchable UI shells** | cPanel, Plesk, DirectAdmin Evolution & Standard, HestiaCP, ISPConfig — all light + dark |
 | 🏷️ **True white-label** | Per-reseller name, colors, every logo asset, favicon, SEO image — words *or* pictures, scalable logo |
 | 👥 **Owner → Reseller → User RBAC** | Every query scoped; resellers see only their own subtree |
-| 🔒 **Security-first** | CSF firewall, ImunifyAV/360 ⇄ Fail2Ban engine, ModSecurity WAF, 2FA, support keys, in-house pentested |
+| 🔒 **Security-first** | firewalld host firewall + Fail2Ban, ImunifyAV/360 malware engine, ModSecurity WAF, 2FA, support keys, in-house pentested |
 | 🌐 **Full hosting stack** | Nginx + Apache + PHP-FPM (7.4 → 8.5), BIND DNS, Let's Encrypt, FTP, Valkey, Varnish |
 | 📧 **Mailbox-free by design** | No mail daemon on the panel box — pluggable SafeGuard Mail / Google / M365 / external |
 | 🧰 **WordPress & CMS toolkits** | Plesk-class WP toolkit, Joomla/Drupal, 1-click installer, live site screenshots |
@@ -241,7 +241,7 @@ your colors, your favicon and SEO card — per reseller, with live preview.
 
 <table>
 <tr>
-<td width="50%"><b>🔐 Security engine</b><br>Switch between ImunifyAV, Imunify360 and Fail2Ban — CSF always on.<br><br><img src="docs/screenshots/security-engine.png" alt="Security engine"></td>
+<td width="50%"><b>🔐 Security engine</b><br>ImunifyAV with Fail2Ban, or Imunify360 — the firewalld host firewall always on.<br><br><img src="docs/screenshots/security-engine.png" alt="Security engine"></td>
 <td width="50%"><b>⭐ Security Advisor</b><br>A 5000-point rating across 13 categories with one-click fixes and history.<br><br><img src="docs/screenshots/advisor.png" alt="Security Advisor"></td>
 </tr>
 <tr>
@@ -292,7 +292,7 @@ your colors, your favicon and SEO card — per reseller, with live preview.
 | Owner→Reseller→User RBAC | 🟢 | 🟢 | 🟢 | 🟢 | 🔴 | 🟡 | 🟡 | 🟢 | 🟡 |
 | Built-in website builder | 🟢 Wix-class | 🟡 add-on | 🟡 add-on | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
 | WordPress toolkit | 🟢 | 🟢 | 🟢 | 🟡 | 🟡 | 🟡 | 🟡 | 🔴 | 🟢 |
-| Security engine choice (AV/360/F2B+CSF) | 🟢 | 🟡 | 🟡 | 🟡 | 🟡 | 🟡 | 🟡 | 🟡 | 🟡 |
+| Security engine choice (AV+F2B / 360 / firewalld) | 🟢 | 🟡 | 🟡 | 🟡 | 🟡 | 🟡 | 🟡 | 🟡 | 🟡 |
 | Encrypted off-site backups | 🟢 B2+AES | 🟡 | 🟢 | 🟡 | 🟡 | 🟡 | 🟡 | 🟡 | 🟡 |
 | Multi-provider email (no local daemon) | 🟢 | 🔴 | 🔴 | 🔴 | n/a | 🔴 | 🔴 | 🔴 | 🔴 |
 | Single static binary | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 |
@@ -314,7 +314,7 @@ flowchart LR
     N -.->|panel down?| R["🔧 Repair server :2085<br/>(independent binary)"]
     P --> D[("Panel store: SQLite<br/>WAL · hourly snapshots<br/>integrity-checked at boot")]
     P --> S["Hosting stack<br/>Apache + PHP-FPM 7.4–8.5<br/>BIND DNS · Pure-FTPd<br/>Varnish · Valkey"]
-    P --> SEC["Security layer<br/>CSF · ImunifyAV/360 ⇄ Fail2Ban<br/>ModSecurity WAF"]
+    P --> SEC["Security layer<br/>firewalld + Fail2Ban · ImunifyAV/360<br/>ModSecurity WAF"]
     P --> EXT["Integrations<br/>Cloudflare · Backblaze B2<br/>Let's Encrypt · billing panels"]
 ```
 
@@ -378,7 +378,7 @@ sudo bash install.sh
 `6C5B CC89 94E4 529F F969  C946 A4A1 7D29 03CB 009F`
 
 The installer provisions the whole stack (Nginx, Apache, PHP-FPM 7.4–8.5, MariaDB,
-PostgreSQL, BIND, Valkey, Varnish, Pure-FTPd, certbot, CSF, ImunifyAV), creates the
+PostgreSQL, BIND, Valkey, Varnish, Pure-FTPd, certbot, firewalld, fail2ban, ImunifyAV), creates the
 systemd services, terminates TLS on port **2087**, and prints your generated admin
 password. A standalone repair server keeps `/repair` reachable even if the panel is down.
 

@@ -10,6 +10,117 @@ page — the installer checks every download against them.
 
 ## [Unreleased]
 
+### Changed
+- **Host firewall is now firewalld, managed by the panel.** The deny and allow
+  lists on the Host Firewall page (formerly the CSF page) become firewalld
+  ipsets bound to the drop and trusted zones: they apply immediately, survive
+  reboots, take IPv4 and IPv6 addresses or CIDR ranges, and the panel refuses
+  to deny-list the address you are connected from. ConfigServer (CSF) closed in
+  2025 and its downloads no longer exist, so the installer no longer tries to
+  fetch it; a server that still has CSF from an older install is reported and
+  left alone.
+- **Fail2Ban is the brute-force layer.** The installer sets it up with SSH, FTP
+  and repeat-offender jails that ban through the same firewalld. It runs next
+  to ImunifyAV by default and pauses only while Imunify360 (which blocks IPs
+  itself) is active. Jails, current bans, unban and the never-ban list are
+  managed on the Security Engine page.
+- Security Engine choices are now **ImunifyAV + Fail2Ban** (default),
+  **Fail2Ban only**, or **Imunify360**.
+- API: `/api/firewall`, `/api/firewall/toggle` and `/api/firewall/lists`
+  replace `/api/csf*`; the old paths keep working for one release.
+- Installer: supported-OS list now tracks what cPanel and Plesk ship for Linux
+  (EL 9-10 including Virtuozzo Linux, Ubuntu 22.04/24.04/26.04 LTS, Debian
+  12/13). EL 8 is deliberately not supported: its kernel predates the
+  `openat2` syscall the worker's path jail is built on.
+
+### Fixed
+- Installer: root password SSH login is now really disabled after a key-based
+  install even when a provider or cloud-init drop-in sets `PermitRootLogin yes`
+  (the panel ships a higher-priority drop-in and verifies the effective value).
+- Installer: PHP 8.5 was always skipped because `php8.5-opcache` does not exist
+  (opcache is built in); the PHP stage no longer asks for it, retries once after
+  a fresh package index, waits for the apt lock, and keeps apt's errors in
+  `/root/safeguard-install-apt.log`.
+- Installer: ImunifyAV never installed because its deploy script requires a
+  hosting-panel integration file; the installer now writes one first.
+- The panel database is created owner-only on first start (it was readable by
+  the service group on a fresh install).
+
+## [1.3.57] — 2026-11-15
+
+Security release. Update as soon as practical: it closes two local
+root-escalation paths on multi-tenant servers and a secret-exposure issue in
+older installs. No action is needed after updating — the worker re-applies file
+ownership and permissions on start.
+
+### Security
+- Worker: creating a domain seeded its placeholder page with calls that followed
+  symlinks inside the tenant's own folder, so a tenant could make root create
+  and hand them ownership of an arbitrary file. The seed now goes through the
+  worker's kernel-enforced path jail.
+- Worker: self-update and rollback helper scripts were staged in the
+  panel-writable install directory before being executed as root. They now
+  live in a root-only runtime directory.
+- Worker: migration dumps were imported as the database superuser. Imports now
+  run as a temporary user limited to the target database, with client-side
+  commands disabled.
+- Worker: on start, re-asserts root ownership of the install tree and binaries,
+  closes the data directory and panel database to other users, and locks down
+  unit files; refuses to start from a location a non-root user could replace.
+- Installer: the JWT secret and initial admin password are no longer written
+  into the world-readable systemd unit; they move to a root-only environment
+  file. Existing installs get their unit file locked down automatically.
+- Sessions: a token is now bound to the user its session row belongs to.
+- Support access keys: support sessions can no longer create API keys, SSH
+  keys, refresh into a plain session, change 2FA or account credentials,
+  impersonate accounts, or read the billing or ticket-bridge secrets.
+- The "must change password" flag is now enforced by the API, not just the UI.
+- Two-step authentication: setup cannot overwrite an active second factor;
+  disabling requires the current password and a valid code; codes are
+  single-use.
+- Resellers can only assign user-type packages they created or the owner
+  published, and only rebind feature sets on their own packages.
+- Billing-initiated suspensions revoke live sessions; staff-set passwords follow
+  the login password policy and sign the account out everywhere; impersonation
+  of suspended accounts is refused.
+- Hardened: inbound ticket webhook (header secret, rate limit), Secure cookies
+  behind the bundled nginx, migration source probe limited to public hosts,
+  SFTP backup paths restricted to a safe character set, FTP username validation.
+
+### Fixed
+- Downloading or restoring a managed account's backup as staff used the staff
+  member's own directory instead of the account's.
+
+### Dependencies
+- Built with Go 1.26.11 (18 standard-library HTTP/2, TLS and certificate
+  advisories) and golang.org/x/crypto 0.56.
+- Frontend tooling updated (vite 6.4.6, postcss 8.5.33, browserslist 4.29.5,
+  nanoid 3.3.20, source-map-js 1.2.2).
+
+## [1.3.56] — 2026-11-14
+
+Cumulative release covering 1.3.55 and 1.3.56.
+
+### Added
+- FTP accounts created in the panel are now real pure-ftpd virtual users,
+  mapped to the owning account's system user and chrooted to its home.
+- CVE advisory matcher: version-range matching against the server's component
+  inventory, so advisories only surface for components actually in the
+  affected range.
+
+### Fixed
+- Login password changes now enforce strength rules and reject reusing the
+  current password.
+- Eleven "Fix" buttons on the Security page pointed at routes that did not
+  exist; all now open the right screen.
+- Worker on Debian/Ubuntu: restored the tenant privilege drop (run-as-tenant
+  operations such as wp-cli, git and app management had been failing) and made
+  package-manager detection pick dnf/apt by what is installed, self-healing if
+  an early read of os-release failed. OS security scans work on Ubuntu again.
+
+### Changed
+- Release bundles are built, GPG-signed and published from a version tag.
+
 ## [1.3.54] — 2026-07-14
 
 ### Added
@@ -750,7 +861,9 @@ that have breached cPanel/Plesk/DirectAdmin/Webmin/VestaCP.)*
   Advisor), encrypted off-site backups, migration importers, and the standalone
   repair server.
 
-[Unreleased]: https://github.com/SafeGuard-Hosting/SafeGuard-Panel-CE/compare/v1.1.0...HEAD
+[Unreleased]: https://github.com/SafeGuard-Hosting/SafeGuard-Panel-CE/compare/v1.3.57...HEAD
+[1.3.57]: https://github.com/SafeGuard-Hosting/SafeGuard-Panel-CE/compare/v1.3.56...v1.3.57
+[1.3.56]: https://github.com/SafeGuard-Hosting/SafeGuard-Panel-CE/compare/v1.3.54...v1.3.56
 [1.1.0]: https://github.com/SafeGuard-Hosting/SafeGuard-Panel-CE/releases/tag/v1.1.0
 [1.0.1]: https://github.com/SafeGuard-Hosting/SafeGuard-Panel-CE/releases/tag/v1.0.1
 [1.0.0]: https://github.com/SafeGuard-Hosting/SafeGuard-Panel-CE/releases/tag/v1.0.0
