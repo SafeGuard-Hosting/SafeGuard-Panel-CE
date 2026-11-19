@@ -20,7 +20,8 @@ page — the installer checks every download against them.
   fetch it; a server that still has CSF from an older install is reported and
   left alone.
 - **Fail2Ban is the brute-force layer.** The installer sets it up with SSH, FTP
-  and repeat-offender jails that ban through the same firewalld. It runs next
+  and repeat-offender jails that block through fail2ban's own nftables rules
+  (so a firewall reload never drops a ban). It runs next
   to ImunifyAV by default and pauses only while Imunify360 (which blocks IPs
   itself) is active. Jails, current bans, unban and the never-ban list are
   managed on the Security Engine page.
@@ -34,6 +35,31 @@ page — the installer checks every download against them.
   `openat2` syscall the worker's path jail is built on.
 
 ### Fixed
+- Account backups failed on every production server ("permission denied" on
+  the tenant home); the worker now creates and restores the archives.
+- PostgreSQL databases could not be created, listed or dropped on production
+  (peer authentication); all PostgreSQL admin now runs through the worker, and
+  the database user owns its database.
+- Deleting an account could leave it half-deleted (OS account gone, still
+  listed in the panel) whenever a pointer, an application or bandwidth history
+  referenced it. Deletion is now all-or-nothing and also removes DNS zones,
+  FTP logins and engine databases. Billing-initiated terminations now remove
+  the OS account too.
+- The panel owner's own file manager failed on Ubuntu images that ship an
+  `admin` group; the account now gets a private group instead.
+- New domains and their DNS zones pointed at 127.0.0.1: the server's real IP
+  is detected on start and the IPs page can set the main address.
+- Site redirects, custom error pages, hotlink protection and domain pointers
+  were saved but never reached the web server. They now do, and unknown
+  `.php` URLs return a proper 404 instead of PHP-FPM's "File not found.".
+- Staging environments could not be created on production.
+- A cron schedule with an out-of-range value (e.g. minute 99) silently took
+  every job of the account offline; schedules are validated per field.
+- Changing an FTP account's directory from the UI was refused.
+- Services page: sshd is recognised on Debian/Ubuntu (unit `ssh`).
+- ImunifyAV's idle (socket-activated) state no longer shows the engine as
+  "Fail2Ban only".
+- Installer: wp-cli is installed, so the WordPress Toolkit works.
 - Installer: root password SSH login is now really disabled after a key-based
   install even when a provider or cloud-init drop-in sets `PermitRootLogin yes`
   (the panel ships a higher-priority drop-in and verifies the effective value).
